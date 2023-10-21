@@ -1,0 +1,54 @@
+@import url(./libs/_normalize.scss);
+@import './variables';
+
+.app {
+  text-align: center;
+  height: 100vh;
+  position: relative;
+}
+.main {
+  display: flex;
+  margin: 150px auto 50px;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+// =============================================LOGIN =================================
+
+.logo_container {
+  width: calc(85vw - 40px);
+  margin: 30px auto;
+
+  h1 {
+    margin-left: 50px;
+    font-size: 46px;
+    font-weight: 700;
+  }
+
+  .logo {
+    max-width: 70px;
+    max-height: 70px;
+    text-align: center;
+    padding: 2px;
+  }
+}
+
+.header_container {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 10px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+// =====================================================================================
+
+.green {
+  background-color: $green !important;
+}
+.red {
+  background-color: $red !important;
+}
+.disabled {
+  display: none;
+}
