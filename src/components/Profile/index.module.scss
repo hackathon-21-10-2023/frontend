@@ -1,0 +1,29 @@
+.root {
+  h2 {
+    font-weight: 700;
+  }
+  &__descprofile {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+    li {
+      font-weight: 600;
+    }
+  }
+  &__descprofile_desc {
+    flex-grow: 0.1;
+    margin-left: 20px;
+    &__container {
+      &__full {
+        font-size: 22px;
+      }
+      &__role {
+        font-size: 20px;
+      }
+      &__email {
+        font-size: 18px;
+      }
+    }
+  }
+}

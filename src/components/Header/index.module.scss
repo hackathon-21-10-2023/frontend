@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 10px;
+  box-sizing: border-box;
+  align-items: center;
+  h1 {
+    margin-left: 50px;
+    font-size: 46px;
+    font-weight: 700;
+  }
+
+  &__logo {
+    max-width: 70px;
+    max-height: 70px;
+    text-align: center;
+    padding: 2px;
+  }
+}
