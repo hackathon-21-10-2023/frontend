@@ -1,4 +1,5 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './scss/app.scss';
 import { Feedback } from './pages/Feedback';
 import { Login } from './pages/Login';

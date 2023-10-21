@@ -5,6 +5,7 @@
   height: 100vh;
   position: relative;
 }
+
 .main {
   display: flex;
   margin: 150px auto 50px;
@@ -14,33 +15,59 @@
 
 // =============================================LOGIN =================================
 
-.logo_container {
+.app {
   width: calc(85vw - 40px);
   margin: 30px auto;
-
-  h1 {
-    margin-left: 50px;
-    font-size: 46px;
-    font-weight: 700;
-  }
-
-  .logo {
-    max-width: 70px;
-    max-height: 70px;
-    text-align: center;
-    padding: 2px;
-  }
-}
-
-.header_container {
-  display: flex;
-  justify-content: flex-start;
-  padding: 0 10px;
-  box-sizing: border-box;
-  align-items: center;
 }
 
 // =====================================================================================
+
+.feedback_container {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+.slaves_container {
+  display: flex;
+  align-items: center;
+  .link {
+    margin-right: 10px;
+  }
+  p {
+    margin-right: 10px;
+  }
+}
+
+.link {
+  border-bottom: 1px #c2c2c2 solid;
+  font-size: 24px;
+  font-weight: 700;
+  color: inherit;
+  margin-left: 50px;
+}
+
+.redbox {
+  width: 20px;
+  display: flex;
+  background-color: $red !important;
+  border-radius: 50px;
+  color: #ffffff;
+  span {
+    margin: 0 auto;
+  }
+}
+
+.greenbox {
+  width: 20px;
+  display: flex;
+  background-color: $green !important;
+  border-radius: 50px;
+  color: #ffffff;
+  span {
+    margin: 0 auto;
+  }
+}
 
 .green {
   background-color: $green !important;
@@ -50,4 +77,21 @@
 }
 .disabled {
   display: none;
+}
+.datafor_container {
+  max-height: 80px;
+  white-space: nowrap;
+  width: 300px;
+}
+.testing {
+  transition: margin-left 2s;
+  margin-left: 315px !important;
+}
+.arrow_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    margin: 20px;
+  }
 }

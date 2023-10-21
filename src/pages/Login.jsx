@@ -1,14 +1,11 @@
 import React from 'react';
 import { Form } from '../components/Form';
-import { ReactComponent as Logo } from '../img/logo.svg';
+import { Header } from '../components/Header';
 
 export const Login = () => {
   return (
-    <div className="logo_container">
-      <div className="header_container">
-        <Logo className="logo" />
-        <h1 className="header">обратная связь</h1>
-      </div>
+    <div className="login_container">
+      <Header />
       <Form />
     </div>
   );
