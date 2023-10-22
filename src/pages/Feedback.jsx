@@ -29,12 +29,13 @@ export const Feedback = () => {
   const onPostClick = () => {
     const answ = localStorage.getItem("getAnsw")
     const jwt = localStorage.getItem('jwt');
+    const comment = localStorage.getItem('comment')
     const token = 'Bearer ' + jwt.replace('"', '').replace('"', '');
     axios.post(`https://hackathon-21-10-2023.adoge.ru/api/v1/feedback_create/`,{
       "feedback_items": [
         {
-          "metric_id": questions,
-          "text": "test",
+          "metric_id": 3,
+          "text": comment,
           "score": answ
         }
       ],

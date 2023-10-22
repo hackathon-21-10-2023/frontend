@@ -3,10 +3,12 @@ import styles from './index.module.scss';
 
 export const YourMarkCard = ({title, description}) => {
   const [frsBtn, setFrtBtn] = React.useState(0) 
+  const [comment, setComment] = React.useState("") 
   
   const onBtnClick = (el) => {
     setFrtBtn(el)
     localStorage.setItem('title', frsBtn)
+    localStorage.setItem("comment", )
   }
 
   return (
@@ -34,7 +36,9 @@ export const YourMarkCard = ({title, description}) => {
           name="leave comment"
           cols="30"
           rows="10"
-          placeholder="Оставьте комментарий..."></textarea>
+          placeholder="Оставьте комментарий..."
+          onChange={(e) => localStorage.setItem("comment", e.target.value)}
+          ></textarea>
       </div>
     </div>
     </>
