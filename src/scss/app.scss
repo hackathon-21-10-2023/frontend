@@ -81,7 +81,8 @@
 .datafor_container {
   max-height: 80px;
   white-space: nowrap;
-  width: 300px;
+  overflow: hidden;
+  width: 320px;
 }
 .testing {
   transition: margin-left 2s;
@@ -94,4 +95,52 @@
   img {
     margin: 20px;
   }
+}
+.super-but {
+  margin-left: 20px;
+  border-radius: 50px !important;
+  margin-right: 15px;
+  width: 280px !important;
+  height: 50px !important;
+  font-size: 16px;
+  padding: 10px;
+  background: none;
+  border: 1.5px solid #c2c2c2;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.react-multiple-carousel__arrow {
+  min-width: 20px !important;
+  min-height: 20px !important;
+  background: none !important;
+}
+.react-multiple-carousel__arrow--right {
+  right: calc(4% + -15px) !important;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: calc(4% + -15px) !important;
+}
+
+.react-multiple-carousel__arrow::before {
+  color: #878787 !important;
+  font-weight: 800;
+}
+.btn {
+  border-radius: 30px;
+  margin-top: 15px;
+  width: 160px;
+  height: 45px;
+  font-size: 16px;
+  padding: 10px;
+  background: none;
+  border: 1.5px solid #000000;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.custom_container {
+  margin-top: -35px;
 }

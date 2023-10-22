@@ -1,24 +1,19 @@
 import React from 'react';
 import styles from './index.module.scss';
-import { Card } from '../Card';
-import arrowright from '../../img/images 1.png';
-import arrowleft from '../../img/images 1-2.png';
-import Slider from 'react-slick';
+import { CardForFeedback } from '../Cards/CardForFeedback';
+import { CardForYourMarks } from '../Cards/CardForYourMarks';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 export const YourMarks = (num) => {
   const dataForFeedback = num.dataForFeedback;
   const dataForYourMarks = num.dataForYourMarks;
 
-  const [arrowRight, setArrowRight] = React.useState(false);
-  const [arrowLeft, setArrowLeft] = React.useState(false);
-  console.log(arrowRight);
-
-  const onRightArrowClick = () => {
-    setArrowRight(!arrowRight);
-  };
-
-  const onLeftArrowClick = () => {
-    setArrowLeft(!arrowLeft);
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+    },
   };
 
   return (
@@ -35,19 +30,11 @@ export const YourMarks = (num) => {
           {dataForFeedback.length !== 0 ? (
             <div>
               <div className="datafor_container">
-                {dataForFeedback.map((el, i) => {
-                  return <Card key={i} {...el} />;
-                })}
-              </div>
-              <div className="arrow_container">
-                <img
-                  src={arrowleft}
-                  width={7}
-                  className={arrowLeft ? '' : 'testing'}
-                  alt="arrow"
-                  onClick={onLeftArrowClick}
-                />
-                <img src={arrowright} width={7} alt="arrow" onClick={onRightArrowClick} />
+                <Carousel infinite={true} responsive={responsive}>
+                  {dataForFeedback.map((el, i) => {
+                    return <CardForFeedback key={i} {...el} />;
+                  })}
+                </Carousel>
               </div>
             </div>
           ) : (
@@ -64,22 +51,22 @@ export const YourMarks = (num) => {
         </div>
         <ul>
           {dataForYourMarks.length !== 0 ? (
-            <div className="datafor">
+            <div>
               <div className="datafor_container">
-                {dataForYourMarks.map((el, i) => {
-                  return <Card key={i} {...el} arrowLeft={arrowLeft} />;
-                })}
-              </div>
-              <div className="arrow_container">
-                <img src={arrowleft} width={7} alt="arrow" onClick={onLeftArrowClick} />
-                <img src={arrowright} width={7} alt="arrow" onClick={onRightArrowClick} />
+                <Carousel infinite={true} responsive={responsive}>
+                  {dataForYourMarks.map((_, i) => {
+                    return <CardForYourMarks key={i} />;
+                  })}
+                </Carousel>
               </div>
             </div>
           ) : (
             <li>У вас пока нет обратной связи</li>
           )}
         </ul>
-        <button type="button">Запросить</button>
+        <button type="button" className="btn">
+          Запросить
+        </button>
       </div>
     </div>
   );

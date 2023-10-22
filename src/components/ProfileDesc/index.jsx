@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 import fstAvatar from '../../img/Ellipse 1-2.png';
 import secAvatar from '../../img/Ellipse 1.png';
 
-export const Profile = () => {
+export const ProfileDesc = () => {
   const email = 'ivan@greensight.ru';
   const role = 'Ведущий сотрудник';
   const fullName = 'Иван Иванов';
@@ -13,9 +13,9 @@ export const Profile = () => {
       <div className={styles.root__descprofile}>
         <div className={styles.root__descprofile__profile}>
           {role.includes('руководитель') ? (
-            <img src={fstAvatar} width={80} className={styles.root__img} alt="profile photo" />
+            <img src={fstAvatar} width={80} className={styles.root__img} alt="profile" />
           ) : (
-            <img src={secAvatar} width={80} alt="profile photo" />
+            <img src={secAvatar} width={80} alt="profile" />
           )}
         </div>
         <div className={styles.root__descprofile_desc}>

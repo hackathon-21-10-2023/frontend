@@ -16,26 +16,12 @@
   ul {
     margin-top: 5px;
     display: flex;
+    justify-self: center;
     align-items: center;
-    overflow: hidden;
-    max-width: 300px;
+    overflow-x: scroll;
   }
   li {
     font-size: 18px;
-  }
-
-  button {
-    border-radius: 30px;
-    margin-top: 15px;
-    width: 160px;
-    height: 45px;
-    font-size: 16px;
-    padding: 10px;
-    background: none;
-    border: 1.5px solid #000000;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
   }
 
   &__yourmarks {
@@ -48,5 +34,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     flex-grow: 0.5;
+    margin-top: 45px;
   }
 }

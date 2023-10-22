@@ -20,7 +20,7 @@ export const Form = () => {
         </label>
       </div>
       <div className={styles.root__footer}>
-        <button type="button" onClick={() => nav('/feedback')}>
+        <button type="button" onClick={() => nav('/profile')}>
           Войти
         </button>
       </div>
