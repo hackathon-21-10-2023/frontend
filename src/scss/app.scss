@@ -220,3 +220,50 @@ textarea::placeholder {
   margin-left: 40px;
   margin-top: 30px;
 }
+.res_container {
+  margin-top: 30px;
+  margin-left: 40px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  height: 280px;
+}
+.testfor {
+  display: flex;
+  width: 40%;
+  margin-bottom: 50px;
+  justify-content: space-between;
+}
+.anotherh2 {
+  margin-left: 40px;
+  margin-top: 30px;
+}
+.ghghg {
+  border: 1.5px #c2c2c2 solid;
+  height: 15px;
+  display: block;
+  border-radius: 40px;
+  width: 15px;
+}
+.ghghg_container {
+  display: flex;
+  align-items: center;
+  h4 {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+}
+.test_res {
+  max-height: 400px;
+  height: 300px;
+  padding-bottom: 80px !important;
+}
+.pp_container {
+  max-width: 900px;
+}
+.h1 {
+  a {
+    text-decoration: none;
+    color: #000000 !important;
+  }
+}
