@@ -182,3 +182,41 @@
 .testtest {
   width: 450px !important;
 }
+textarea {
+  border-radius: 30px;
+  width: 500px;
+  height: 100px;
+  padding: 10px 0 0 20px;
+  border: 1.5px #c2c2c2 solid;
+}
+textarea::placeholder {
+  font-size: 16px;
+}
+.test_cust {
+  width: 60px !important;
+  margin-right: 10px;
+  margin-top: 0 !important;
+}
+.divforCard {
+  display: flex;
+  align-items: center;
+  max-width: 490px;
+  justify-content: space-between;
+}
+.yourtestcontainer {
+  margin-top: 30px;
+  margin-left: 40px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.yourtesth2 {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.btn_cust {
+  width: 200px !important;
+  margin-left: 40px;
+  margin-top: 30px;
+}
