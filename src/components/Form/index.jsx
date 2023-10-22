@@ -21,7 +21,10 @@ export const Form = () => {
         password: loginState.pass,
       })
       .then(function (response) {
+        console.log(response.data)
         localStorage.setItem('jwt', JSON.stringify(response.data.token));
+        localStorage.setItem('id', JSON.stringify(response.data.id));
+        localStorage.setItem("position", JSON.stringify(response.data.position))
         nav('/profile');
       })
       .catch(function (error) {

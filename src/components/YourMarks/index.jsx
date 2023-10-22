@@ -4,16 +4,53 @@ import { CardForFeedback } from '../Cards/CardForFeedback';
 import { CardForYourMarks } from '../Cards/CardForYourMarks';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import axios from 'axios';
 
-export const YourMarks = (num) => {
-  const dataForFeedback = num.dataForFeedback;
-  const dataForYourMarks = num.dataForYourMarks;
+export const YourMarks = () => {
+  const [needToReviewUsers, setNeedToReview] = React.useState([]);
+  const [users, setUsers] = React.useState([]);
 
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 1,
     },
+  };
+
+  React.useEffect(() => {
+      const jwt = localStorage.getItem('jwt');
+      const token = 'Bearer ' + jwt.replace('"', '').replace('"', '');
+      console.log(token);
+      axios.get(`https://hackathon-21-10-2023.adoge.ru//api/v1/list_need_to_review_users/`, {
+        headers: {
+          Authorization: token,
+        },
+      }).then(function (response) {
+        console.log(response.data)
+        setNeedToReview(response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [])
+
+
+  const getAskReviewInfo = () => {
+    const jwt = localStorage.getItem('jwt');
+    const token = 'Bearer ' + jwt.replace('"', '').replace('"', '');
+    const id = localStorage.getItem('id');
+    console.log(token);
+    axios.get(`https://hackathon-21-10-2023.adoge.ru//api/v1/review/list/for/${id}/`, {
+      headers: {
+        Authorization: token,
+      },
+    }).then(function (response) {
+      console.log(response.data)
+      setUsers(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   };
 
   return (
@@ -23,15 +60,15 @@ export const YourMarks = (num) => {
         <div className="slaves_container">
           <p>вы оцениваете</p>
           <div className="redbox">
-            <span>{dataForFeedback.length}</span>
+            <span>{needToReviewUsers.length}</span>
           </div>
         </div>
         <ul>
-          {dataForFeedback.length !== 0 ? (
+          {needToReviewUsers.length !== 0 ? (
             <div>
               <div className="datafor_container">
                 <Carousel infinite={true} responsive={responsive}>
-                  {dataForFeedback.map((el, i) => {
+                  {needToReviewUsers.map((el, i) => {
                     return <CardForFeedback key={i} {...el} />;
                   })}
                 </Carousel>
@@ -46,16 +83,16 @@ export const YourMarks = (num) => {
         <div className="slaves_container">
           <p>вас оценили</p>
           <div className="greenbox">
-            <span>{dataForYourMarks.length}</span>
+            <span>{users.length}</span>
           </div>
         </div>
         <ul>
-          {dataForYourMarks.length !== 0 ? (
+          {users.length !== 0 ? (
             <div>
               <div className="datafor_container">
                 <Carousel infinite={true} responsive={responsive}>
-                  {dataForYourMarks.map((_, i) => {
-                    return <CardForYourMarks key={i} />;
+                  {users.map((obj, i) => {
+                    return <CardForYourMarks key={i} {...obj}/>;
                   })}
                 </Carousel>
               </div>
@@ -64,7 +101,7 @@ export const YourMarks = (num) => {
             <li>У вас пока нет обратной связи</li>
           )}
         </ul>
-        <button type="button" className="btn">
+        <button onClick={() => getAskReviewInfo()} type="button" className="btn">
           Запросить
         </button>
       </div>

@@ -1,48 +1,60 @@
-import React from 'react';
+import React from 'react'
 
 import { Header } from '../components/Header';
 import { YourMarkCard } from '../components/Cards/YourMarkCard';
 
+import axios from 'axios';
+
 export const Feedback = () => {
-  const dataForFeedback = [
-    {
-      id: 3,
-      username: 'kkkk@afs.com',
-      name: 'Кирилл',
-      surname: 'Куликов',
-      email: 'kkkk@afs.com',
-      position: 'Джун',
-      photo: 'http://127.0.0.1:8000/static/photos/person1.jpeg',
-      is_intern: false,
-      is_head: false,
-      is_awaiting_feedback: false,
-      department: 1,
-      feedback_viewed: null,
-    },
-    {
-      id: 4,
-      username: 'mmm@aadg.com',
-      name: 'Максим',
-      surname: 'Окулов',
-      email: 'mmm@aadg.com',
-      position: 'Мидл+',
-      photo: 'http://127.0.0.1:8000/static/photos/person2.jpeg',
-      is_intern: false,
-      is_head: false,
-      is_awaiting_feedback: false,
-      department: 1,
-      feedback_viewed: null,
-    },
-  ];
+  const [questions, setQuestions] = React.useState([])
+
+
+  React.useEffect(() => {
+
+    const jwt = localStorage.getItem('jwt');
+    const token = 'Bearer ' + jwt.replace('"', '').replace('"', '');
+    axios.get(`https://hackathon-21-10-2023.adoge.ru/api/v1/metric/list/`, {
+      headers: {
+        Authorization: token,
+      },
+    }).then(function (response) {
+      setQuestions(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  } ,[])
+
+  const onPostClick = () => {
+    const answ = localStorage.getItem("getAnsw")
+    const jwt = localStorage.getItem('jwt');
+    const token = 'Bearer ' + jwt.replace('"', '').replace('"', '');
+    axios.post(`https://hackathon-21-10-2023.adoge.ru/api/v1/feedback_create/`,{
+      "feedback_items": [
+        {
+          "metric_id": questions,
+          "text": "test",
+          "score": answ
+        }
+      ],
+      "to_user_id": 6
+    }, {
+      headers: {
+        Authorization: token,
+      },
+    })
+  }
+
   return (
     <div>
       <Header />
       <h2 className="yourtesth2">ваша оценка сотрудника</h2>
       <div>
-        {dataForFeedback.map((el, i) => {
+        {questions.map((el, i) => {
           return <YourMarkCard key={i} {...el} />;
         })}
-        <button type="button" className="btn btn_cust">
+        <button onClick={() => onPostClick()} type="button" className="btn btn_cust">
           Отправить
         </button>
       </div>

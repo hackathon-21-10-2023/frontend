@@ -1,19 +1,27 @@
 import React from 'react';
 import styles from './index.module.scss';
 
-export const YourMarkCard = () => {
+export const YourMarkCard = ({title, description}) => {
+  const [frsBtn, setFrtBtn] = React.useState(0) 
+  
+  const onBtnClick = (el) => {
+    setFrtBtn(el)
+    localStorage.setItem('title', frsBtn)
+  }
+
   return (
-    <div className="yourtestcontainer">
+    <>
+        <div className="yourtestcontainer">
       <div>
-        <h3>участие в рабочих задачах</h3>
-        <p>Оцените качество выполнения сотрудником поставленных целей и задач </p>
+        <h3>{title}</h3>
+        <p>{description}</p>
       </div>
       <div className="divforCard">
         <span>ужасно</span>
         <ul>
           {Array.from([1, 2, 3, 4, 5], (el, i) => {
             return (
-              <button type="button" className="btn test_cust" key={i}>
+              <button type="button" onClick={() => onBtnClick(el)} className="btn test_cust" key={i}>
                 {el}
               </button>
             );
@@ -29,5 +37,6 @@ export const YourMarkCard = () => {
           placeholder="Оставьте комментарий..."></textarea>
       </div>
     </div>
+    </>
   );
 };

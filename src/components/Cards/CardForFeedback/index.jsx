@@ -5,11 +5,15 @@ import arrowleft from '../../../img/images 1-2.png';
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
 
-export const CardForFeedback = () => {
+export const CardForFeedback = ({name, surname, photo}) => {
   const navigate = useNavigate();
+  const croppedImg = photo.replace("8000", "")
   return (
     <button onClick={() => navigate('/feedback')} type="button" className="super-but">
-      test
+      <div className='fast'>
+      <img width={40} src={croppedImg} alt="avatar" />
+      {name} {surname}
+      </div>
     </button>
   );
 };
